@@ -54,7 +54,7 @@ export const ProductDetails = ({
             height={500}
           />
         </div>
-        
+
         {/* PRODUCT */}
         <div>
           <h1 className=" font-bold text-xl mt-5"> {filteredData.title}</h1>
@@ -62,53 +62,56 @@ export const ProductDetails = ({
           <h1 className="font-semibold mt-3"> ${filteredData.price} </h1>
 
           {/* <div className="mt-5 lg:col-span-6"> */}
-            <div className="flex border w-fit mt-5">
-              <button
-                onClick={() => handleDecrement()}
-                disabled={quantity === 1}
-                className={`px-3 py-1 text-center hover:bg-gray-200`}
-              >
-                -
-              </button>
-              <div className="px-3 py-1 text-center">{quantity}</div>
-              <button
-                onClick={() => handleIncrement()}
-                className={`px-3 py-1 text-center hover:bg-gray-200`}
-              >
-                +
-              </button>
-            </div>
-          {/* </div> */}
-          
-        
-          <Button className="lg:my-5 my-2"> Add to Cart</Button>
-        </div>
-      </div>
-        
-        {/* PRODUCT DETAILS */}
-        <div>
-          <h3 className="font-bold lg:my-5 text-xl mt-5"> Product Information </h3>
-          <h3 className="font-bold mt-5 "> Product Details </h3>
-
-          <h3 className="text-sm text-gray-500 mr-5"> {filteredData.desc}</h3>
-          <h3 className="font-bold mt-5 "> Product Care </h3>
-          
-            <ul className=" lg:ml-3 text-sm list-disc [&>li]:mt-0.5 text-gray-500">
-              <li>Hand wash using cold water.</li>
-              <li>Do not use bleach.</li>
-              <li>Wash light and bright colours separately.</li>
-            </ul>
-          
-        </div>
-
-        {/* SIZE CHART */}
-        <div>
-          <div>
-            <h1 className=" font-bold text-xl mt-5"> Size Chart</h1>
+          <div className="flex border w-fit mt-5">
+            <button
+              onClick={() => handleDecrement()}
+              disabled={quantity === 1}
+              className={`px-3 py-1 text-center hover:bg-gray-200`}
+            >
+              -
+            </button>
+            <div className="px-3 py-1 text-center">{quantity}</div>
+            <button
+              onClick={() => handleIncrement()}
+              className={`px-3 py-1 text-center hover:bg-gray-200`}
+            >
+              +
+            </button>
           </div>
-          <TypographyTable></TypographyTable>
+          {/* </div> */}
+
+          <Button onClick={handleAddToCart} className="lg:my-5 my-2">
+            
+            Add to Cart
+          </Button>
         </div>
       </div>
-      
-      )}
+
+      {/* PRODUCT DETAILS */}
+      <div>
+        <h3 className="font-bold lg:my-5 text-xl mt-5">
+          {" "}
+          Product Information{" "}
+        </h3>
+        <h3 className="font-bold mt-5 "> Product Details </h3>
+
+        <h3 className="text-sm text-gray-500 mr-5"> {filteredData.desc}</h3>
+        <h3 className="font-bold mt-5 "> Product Care </h3>
+
+        <ul className=" lg:ml-3 text-sm list-disc [&>li]:mt-0.5 text-gray-500">
+          <li>Hand wash using cold water.</li>
+          <li>Do not use bleach.</li>
+          <li>Wash light and bright colours separately.</li>
+        </ul>
+      </div>
+
+      {/* SIZE CHART */}
+      <div>
+        <div>
+          <h1 className=" font-bold text-xl mt-5"> Size Chart</h1>
+        </div>
+        <TypographyTable></TypographyTable>
+      </div>
+    </div>
+  );}
 

@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS cartData (
+CREATE TABLE IF NOT EXISTS cartdata (
     id SERIAL,
     user_id varchar(255) NOT NULL,
     product_id varchar(255) NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS cartData (
 
 
 
-ALTER TABLE data
+ALTER TABLE cartdata
 ADD CONSTRAINT UNIQUENESS UNIQUE (
-        product_id, product_color
+       product_title
 );

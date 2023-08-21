@@ -15,13 +15,19 @@ export const POST = async (request: NextRequest) => {
         product_price: req.product_price,
         product_quantity: req.product_quantity,
         image_url: req.image_url,
+      }).onConflictDoUpdate({
+        target: [cartColumns.product_title],
+        set: {
+          product_quantity: req.product_quantity,
+          product_price: req.product_price
+        }
       })
       .returning();
-    // console.log("Data posted to database");
+    console.log("Data posted to database");
       return NextResponse.json({res});
     
   } catch (error) {
-    // console.log("Error while posting to Database")
+    console.log("Error while posting to Database")
     console.log("error", error);
     return NextResponse.json({message: "Something went wrong"})
   }
