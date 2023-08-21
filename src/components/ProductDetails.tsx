@@ -42,7 +42,7 @@ export const ProductDetails = ({
 
   
   return (
-    <div className="lg:mx-20 ml-10">
+    <div className="lg:mx-20 ml-10 mr-10">
       <div className="lg:flex lg:flex-row flex-col lg:gap-x-20 mx-auto">
         {/* IMAGE */}
         <div>
@@ -61,7 +61,7 @@ export const ProductDetails = ({
           <h4 className="text-gray-500"> {filteredData.category.name} </h4>
           <h1 className="font-semibold mt-3"> ${filteredData.price} </h1>
 
-          <div className="mt-5 lg:col-span-6">
+          {/* <div className="mt-5 lg:col-span-6"> */}
             <div className="flex border w-fit mt-5">
               <button
                 onClick={() => handleDecrement()}
@@ -78,12 +78,13 @@ export const ProductDetails = ({
                 +
               </button>
             </div>
-          </div>
+          {/* </div> */}
           
-
-          <Button className="lg:my-5 my-2"> Add to Cart</Button>
         
-        </div> </div>
+          <Button className="lg:my-5 my-2"> Add to Cart</Button>
+        </div>
+      </div>
+        
         {/* PRODUCT DETAILS */}
         <div>
           <h3 className="font-bold lg:my-5 text-xl mt-5"> Product Information </h3>
@@ -91,13 +92,13 @@ export const ProductDetails = ({
 
           <h3 className="text-sm text-gray-500 mr-5"> {filteredData.desc}</h3>
           <h3 className="font-bold mt-5 "> Product Care </h3>
-          <p>
+          
             <ul className=" lg:ml-3 text-sm list-disc [&>li]:mt-0.5 text-gray-500">
               <li>Hand wash using cold water.</li>
               <li>Do not use bleach.</li>
               <li>Wash light and bright colours separately.</li>
             </ul>
-          </p>
+          
         </div>
 
         {/* SIZE CHART */}

@@ -17,11 +17,11 @@ export const POST = async (request: NextRequest) => {
         image_url: req.image_url,
       })
       .returning();
-    console.log("Data posted to database");
+    // console.log("Data posted to database");
       return NextResponse.json({res});
     
   } catch (error) {
-    console.log("Error while posting to Database")
+    // console.log("Error while posting to Database")
     console.log("error", error);
     return NextResponse.json({message: "Something went wrong"})
   }
