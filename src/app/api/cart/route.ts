@@ -1,15 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cartColumns, db } from "../../../lib/drizzle";
+import { cookies } from "next/headers";
+import { v4 } from "uuid";
+import { eq } from "drizzle-orm";
 
 
 export const POST = async (request: NextRequest) => {
   const req = await request.json();
+  const setCookies = cookies();
+  const uid = v4();
+  const user_id = setCookies.get("user_id")?.value as string;
+  if (!user_id) {
+    setCookies.set("user_id", uid);
+  }
   try {
     const res = await db
       .insert(cartColumns)
       .values({
         // id: req.id,
-        user_id: req.user_id,
+        user_id: user_id,
         product_id: req.product_id,
         product_title: req.product_title,
         product_price: req.product_price,
@@ -24,16 +33,28 @@ export const POST = async (request: NextRequest) => {
       })
       .returning();
     console.log("Data posted to database");
-      return NextResponse.json({res});
+    return NextResponse.json({ res });
     
   } catch (error) {
     console.log("Error while posting to Database")
     console.log("error", error);
-    return NextResponse.json({message: "Something went wrong"})
+    return NextResponse.json({ message: "Something went wrong" })
   }
-}
+};
 
-
+export const GET = async (request: NextRequest) => {
+  const uid = request.nextUrl.searchParams.get("user_id") as string;
+  try {
+    const res = await db
+      .select()
+      .from(cartColumns)
+      .where(eq(cartColumns.user_id, uid));
+    return NextResponse.json(res);
+  } catch (error) {
+    console.log(error);
+    return NextResponse.json(error);
+  }
+};
 
 
 

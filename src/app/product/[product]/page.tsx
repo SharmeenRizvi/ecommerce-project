@@ -3,8 +3,6 @@ import React from 'react';
 import { ProductDetails } from '@/components/ProductDetails';
 import getProductData from '../../../../sanity/getproductdata'
 
-
-
 // export async function generateStaticParams() {
 //   const data = await getProductData();
 //   return data.map((item: any) => ({

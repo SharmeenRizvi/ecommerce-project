@@ -27,7 +27,7 @@ export const ProductDetails = ({
       const res = await fetch("/api/cart", {
         method: "POST",
         body: JSON.stringify({
-          user_id: "qwertyuiop",
+          user_id: "f4c903ee-76d6-4ff6-b5ec-c5bdb0c5d302",
           product_id: filteredData._id,
           product_title: filteredData.title,
           product_price: filteredData.price * quantity,
