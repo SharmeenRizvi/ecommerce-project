@@ -19,6 +19,8 @@ interface IProduct {
   slug: Slug;
 }
 
+
+  
 export default async function Home() {
   const data: IProduct[] = await getProductData();
   console.log(data);
@@ -37,7 +39,10 @@ export default async function Home() {
             <h1 className="bold font-mono"> {item.title}</h1>
             <h3> ${item.price}</h3>
 
-            <button className="border my-3 w-26 text-sm  py-1.5 px-4 rounded bg-black text-white">
+            <button
+            
+              className="border my-3 w-26 text-sm  py-1.5 px-4 rounded bg-black text-white"
+            >
               Add to Cart
             </button>
           </Link>

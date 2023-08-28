@@ -13,4 +13,4 @@ CREATE TABLE IF NOT EXISTS cartdata (
 ALTER TABLE cartdata
 ADD CONSTRAINT UNIQUENESS UNIQUE (
        product_title
-);
+)

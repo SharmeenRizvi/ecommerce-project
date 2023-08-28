@@ -1,9 +1,13 @@
+"use client"
+
 import Link from "next/link";
 import logo from "/public/Logo.webp"
 import Image from "next/image"
 import Wrapper from "@/components/shared/Wrapper";
 import { AiOutlineShoppingCart } from "react-icons/ai"
-import {FaAlignJustify} from "react-icons/fa"
+import { FaAlignJustify } from "react-icons/fa"
+import { SignInButton, UserButton } from "@clerk/nextjs";
+import { useAuth } from "@clerk/nextjs";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,8 +16,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 
-
 const Header = () => {
+
+  const { IsSignedIn } = useAuth();
+
   return (
     <Wrapper>
       <div>
@@ -39,6 +45,17 @@ const Header = () => {
               <Link href={"/allproducts"}>All Products </Link>
             </li>
           </ul>
+
+          <div className="flex justify-between">
+            {!IsSignedIn && (
+              <SignInButton mode="modal">
+                <button className="bg-black text-white lg:px-4 lg:py-2 p-1 text-xs md:text-sm md:font-semibold">
+                  Sign In
+                </button>
+              </SignInButton>
+            )}
+            <UserButton afterSignOutUrl="/" />
+          </div>
 
           <div className="h-10 w-10 rounded-full bg-gray-200 md:flex justify-center items-center hidden ">
             <AiOutlineShoppingCart className="w-6 h-6 " />

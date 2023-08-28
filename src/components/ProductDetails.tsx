@@ -1,14 +1,16 @@
 "use client"
 import React, { useState } from "react";
-
 import { TypographyTable } from "@/components/ui/table";
 import { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { urlForImage } from "../../sanity/lib/image";
+import { useAuth } from "@clerk/nextjs";
 
 export const ProductDetails = ({
   filteredData,
 }: { filteredData: any; }) => {
+
+  const { userId } = useAuth();
 
   const [quantity, setQuantity] = useState(1);
 
@@ -27,7 +29,7 @@ export const ProductDetails = ({
       const res = await fetch("/api/cart", {
         method: "POST",
         body: JSON.stringify({
-          user_id: "f4c903ee-76d6-4ff6-b5ec-c5bdb0c5d302",
+          user_id: userId,
           product_id: filteredData._id,
           product_title: filteredData.title,
           product_price: filteredData.price * quantity,
