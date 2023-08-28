@@ -67,7 +67,6 @@ export default function CartItems() {
       }),
     });
     setState(!state);
-    // console.log('working')
   }
 
   return (
@@ -81,12 +80,12 @@ export default function CartItems() {
                 src={item.image_url}
                 alt=""
                 className="w-56 h-56"
-                width={400}
-                height={400}
+                width={250}
+                height={250}
               />
               <div className="ml-10">
-                <h1 className="text-4xl font-bold">{item.product_title}</h1>
-                <h1 className="text-xl mt-2 font-medium">${item.product_price}</h1>
+                <h1 className="text-xl font-bold">{item.product_title}</h1>
+                <h1 className="text-lg mt-2 font-medium">${item.product_price}</h1>
                 <div className="flex border w-fit mt-5">
                   {/* <button className={`px-3 py-1 text-center hover:bg-gray-200`}>
                     -
@@ -100,9 +99,9 @@ export default function CartItems() {
                 </div>
                 <button
                   onClick={() => deleteProduct(item.product_title)}
-                  className="bg-black text-white py-1 px-5 rounded-md mt-10 font-semibold"
+                  className="bg-black text-white py-1 px-3 rounded-md mt-10"
                 >
-                  DELETE
+                  Delete
                 </button>
               </div>
             </div>
