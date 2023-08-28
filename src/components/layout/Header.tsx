@@ -18,7 +18,7 @@ import {
 
 const Header = () => {
 
-  const { IsSignedIn } = useAuth();
+  const { isSignedIn } = useAuth();
 
   return (
     <Wrapper>
@@ -47,7 +47,7 @@ const Header = () => {
           </ul>
 
           <div className="flex justify-between">
-            {!IsSignedIn && (
+            {!isSignedIn && (
               <SignInButton mode="modal">
                 <button className="bg-black text-white lg:px-4 lg:py-2 p-1 text-xs md:text-sm md:font-semibold">
                   Sign In
