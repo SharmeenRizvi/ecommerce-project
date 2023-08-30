@@ -4,7 +4,7 @@ export const Subscribe = () => {
   return (
     <div className=" lg:mt-20 lg:mb-20 lg:p-20 lg:ml-60 mb-5 mx-auto justify-items-center ">
       <h1 className=" text-4xl font-bold mt-10 text-gray-800 dark:text-white">
-        Subscribe our Newsletter
+        Subscribe to our Newsletter
       </h1>
 
       <h2 className=" text-lg mt-2 text-gray-500 dark:text-white">
